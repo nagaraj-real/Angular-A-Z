@@ -1,0 +1,12 @@
+<div>
+    <span #collect1>{{title| uppercase}}</span>
+    <br/>
+    <span #collect1>{{100| currency:'INR'}}</span>
+    <br/>
+    <span #collect1>{{title| CountPipe:2}}</span>
+    <br/>
+    <span>{{usernamein.value}}</span>
+    <button [ngStyle]="{'width':'400px'}" (click)="onClick($event)">Button Click me</button>
+
+    <input #usernamein type="text" [(ngModel)]="username"  value=""/>
+</div>

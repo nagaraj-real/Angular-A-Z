@@ -1,0 +1,17 @@
+
+<section>
+    <app-header >
+        <app-title [ngClass]="showTitle? 'showtitle--blue': ''" (emitButtonClicked)="clicked($event)" title="you"></app-title>
+        <ng-container *ngIf="showContent else noContent">
+            <ng-container *ngFor="let a of [1,2,3,4];index as i">
+                <h1 [appFocusHighlight]="color" defaultcolor="blue" #headerTextElem id="header-text">{{headerText}}</h1>
+            </ng-container>
+        </ng-container>
+        <ng-template #noContent>
+            {{"Nothing here"}}
+        </ng-template>
+    </app-header>
+    <button>Test</button>
+    <a [routerLink]="['/shopping']" [queryParams]="{shop:true}" >Go to shop</a>
+</section>
+

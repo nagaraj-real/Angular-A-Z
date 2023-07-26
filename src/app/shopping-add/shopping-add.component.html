@@ -1,0 +1,38 @@
+<form [formGroup]="formshop">
+    <fieldset>
+        <legend>Shopping details</legend>
+        <label for="shop-name">name</label>
+        <input id="shop-name" type="text" value="" formControlName="shop-name">
+        <p *ngIf="formshop.get('toDo')?.errors && 
+        formshop.get('toDo')?.hasError('required')"> Error </p>
+        <br/>
+
+        <select name="shop-select" formControlName="shop-select">
+            <option *ngFor="let c of ['asd','you']" [ngValue]="c">{{c}}</option>
+        </select>
+
+        <br/>
+        <label for="shop-desc">desc</label>
+        <input id="shop-desc" type="text" value="" formControlName="shop-desc">
+       
+    </fieldset>
+
+
+    <button type="button" (click)="save()"> submit</button>
+    
+</form>
+
+
+<br/>
+<label for="shop-phone">Phone</label>
+<input #appPhone="ngModel" appPhoneNumber type="text" value="" [(ngModel)]="phoneNumber"/>
+<p *ngIf="appPhone.errors?.['pattern']"> {{Json2.stringify(appPhone.errors?.['pattern'])}} </p>
+
+<div>
+    <li *ngFor="let item of dumblist|async;index as ind">{{item.first_name}}</li>
+</div>
+
+
+<div>
+    <li *ngFor="let item of dumblist|async;index as ind">{{item.last_name}}</li>
+</div>
